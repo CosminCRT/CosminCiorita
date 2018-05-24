@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>
+  
+                                  
+  <title>p1</title><meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"></head>
+
+<body bgcolor="#cccccc" text="#000000" link="#0000ee" alink="#0000ee" vlink="#551a8b">
+          
+<address><a href="dreapta.html"><img src="p3_files/Back_Arrow.png" alt="" width="65" height="65" border="0">
+   </a><br>
+   <br>
+  <font color="#000000"><b> Aplicatie polimorfism parametric:</b><br>
+ </font>   </address>
+       
+<pre><font color="#000000">//metoda va returna numarul minim<br>public int metoda(params int[] numere)<br>{<br><br>    int minim;<br>    //in cazul in care nu e transmis functiei <br>    //nici un parametru, afiseaza un mesaj<br>    if (numere.Length == 0)<br>    {<br>        Console.WriteLine("Nu sunt parametri");<br>   <br>        return 0;<br>    }<br>    //initializam variabila<br>    //cu primul element al tabloului<br>    minim = numere[0];<br>    <br>    //comparam fiecare element al tabloului<br>    //cu valoarea minima initiala<br>      foreach (int i in numere)<br><br>        if (i &lt; minim)<br>   //atribuim valoarea minima variabilei minim<br>        minim = i;<br>    //inapoi la programul apelant al functiei<br>        return minim;<br>  <br>}<br><br></font></pre>
+       
+<address><font color="#000000"><b>Aplicatie polimorfism ad-hoc:</b><br>
+ <br>
+ </font>      </address>
+       
+<pre><font color="#000000">class SupraincarcareMetoda<br>{<br><br>   public void CalculeazaMedia()<br>   {<br>       Console.WriteLine("Nici un parametru");<br>   }<br>//supraincarcam cu un parametru intreg<br>   public void CalculeazaMedia(int nota)<br>   {<br>       Console.WriteLine("O nota:" + nota);<br>   }<br>//supraincarcam cu doi parametri intregi<br>   public void CalculeazaMedia(int nota1, int nota2)<br>   {<br>       Console.WriteLine("Doi parametri: " + nota1 + " " + nota2);<br>   }<br>//supraincarcam cu parametri double<br>   public void CalculeazaMedia(double nota)<br>   {<br>       Console.WriteLine("Un parametru double:" + nota);<br>   }<br>   //eroare, daca incerc sa suprascriu <br>   //doar prin tipul de date returnat<br>   public int CalculeazaMedia(double nota)<br>   { <br>  //<br>   }<br>}<br><br><br></font></pre>
+       
+<address><font color="#000000"><b>Aplicatie la modificatori virtuali si override:</b><br>
+ <br>
+ </font>      </address>
+       
+<pre><font color="#000000">class Baza<br>{<br>    public virtual void Afiseaza()<br>    {<br>        Console.WriteLine("Apelul functiei Afiseaza din clasa de baza\n");<br>    }<br>}<br><br>class Derivata : Baza<br>{<br>    public override void Afiseaza()<br>    {<br>        Console.WriteLine("Apelul functiei Afiseaza din clasa derivata");<br>    }<br><br>}<br><br>Derivata obiect2 = new Derivata();<br>//instantiem pe un obiect din clasa derivata<br>Baza obiect1 = obiect2;<br>//afiseaza functia din clasa de Baza<br>obiect1.Afiseaza();<br>obiect2.Afiseaza();<br></font></pre>
+       
+</body></html>
